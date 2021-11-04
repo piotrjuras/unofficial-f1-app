@@ -1,0 +1,13 @@
+.standings{
+    @media(min-width: 600px){
+        display: flex;
+        max-width: 1440px;
+        margin: 0px auto;
+
+        align-items: center;
+        min-height: 100vh;
+        
+    }
+    padding-bottom: 50px;
+
+}

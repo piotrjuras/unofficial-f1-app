@@ -1,0 +1,34 @@
+.driver_details{
+    max-width: 1440px;
+    margin: 0px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+
+    h1{
+        font-family: "formula1-display-wide";
+        text-align: center;
+        @media (max-width: 600px){
+            font-size: 25px;
+        }
+    }
+    h2{
+        font-family: "formula1-display-wide";
+        text-align: center;
+        @media (max-width: 600px){
+            font-size: 15px;
+        }
+    }
+
+    b{
+        font-family: "formula1-display-bold"; 
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
