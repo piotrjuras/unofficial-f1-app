@@ -17,7 +17,6 @@ const ConstructorDetails = ({ constructors }) => {
     useEffect(() => {
 
         constructors.forEach(constructorItem => {
-            console.log(constructorItem)
             if(constructorItem.Constructor.constructorId === constructorId){
                 setconstructorData(constructorItem)
             }
