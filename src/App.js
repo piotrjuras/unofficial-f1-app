@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Hero from './Hero';
 import Standings from './Standings';
 import DriverDetails from './DriverDetails';
 import ConstructorDetails from './ConstructorDetails';
-
+import Loader from './Loader'
 
 const App = () => {
 
@@ -16,33 +16,56 @@ const App = () => {
 
   const [loaded, setLoaded] = useState(false);
 
+  const urls = ["http://ergast.com/api/f1/current.json", "http://ergast.com/api/f1/current/driverStandings.json", "http://ergast.com/api/f1/current/constructorStandings.json"]
 
 
   useEffect(() => {
 
-      fetch("http://ergast.com/api/f1/current.json")
-      .then(res => res.json())
-      .then(data => {
-        setRaces(data.MRData.RaceTable.Races)
-        setLoaded(true);
-      })
-      .catch(err => console.log(err))
+    Promise.all(urls.map(url => fetch(url, {cache: 'no-store'})))
+    .then(
+        (responses) => Promise.all(responses.map(response => response.json()))
+    )
+    .then(
+        (data) => {
 
-      fetch("http://ergast.com/api/f1/current/driverStandings.json")
-      .then(res => res.json())
-      .then(data => {
-        setDrivers(data.MRData.StandingsTable.StandingsLists[0].DriverStandings)
-        setLoaded(true);
-      })
-      .catch(err => console.log(err))
+          setRaces(data[0].MRData.RaceTable.Races)
+          setDrivers(data[1].MRData.StandingsTable.StandingsLists[0].DriverStandings)
+          setConstructors(data[2].MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
+          setLoaded(true);
+          
+        }
 
-      fetch("http://ergast.com/api/f1/current/constructorStandings.json")
-      .then(res => res.json())
-      .then(data => {
-        setConstructors(data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
-        setLoaded(true);
-      })
-      .catch(err => console.log(err))
+    )
+    .catch(
+        (error) => {
+            console.log(error)
+        }
+    )
+
+
+      // fetch("http://ergast.com/api/f1/current.json")
+      // .then(res => res.json())
+      // .then(data => {
+      //   setRaces(data.MRData.RaceTable.Races)
+      //   setLoaded(true);
+      // })
+      // .catch(err => console.log(err))
+
+      // fetch("http://ergast.com/api/f1/current/driverStandings.json")
+      // .then(res => res.json())
+      // .then(data => {
+      //   setDrivers(data.MRData.StandingsTable.StandingsLists[0].DriverStandings)
+      //   setLoaded(true);
+      // })
+      // .catch(err => console.log(err))
+
+      // fetch("http://ergast.com/api/f1/current/constructorStandings.json")
+      // .then(res => res.json())
+      // .then(data => {
+      //   setConstructors(data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
+      //   setLoaded(true);
+      // })
+      // .catch(err => console.log(err))
 
   },[])
 
@@ -50,7 +73,7 @@ const App = () => {
 
     loaded ? (
       <div className="App">
-        <BrowserRouter basename="/f1">
+        <BrowserRouter>
           <Route exact path = "/">
             <Hero races = {races} />
             <Standings drivers = {drivers} constructors = {constructors} />
@@ -63,7 +86,7 @@ const App = () => {
           </Route>
         </BrowserRouter>
       </div>
-    ) : null
+    ) : <Loader />
 
   );
 
