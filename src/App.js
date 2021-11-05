@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import './App.scss';
+import './App.css';
 import Hero from './Hero';
 import Standings from './Standings';
 import DriverDetails from './DriverDetails';
