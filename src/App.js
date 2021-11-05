@@ -43,30 +43,6 @@ const App = () => {
     )
 
 
-      // fetch("http://ergast.com/api/f1/current.json")
-      // .then(res => res.json())
-      // .then(data => {
-      //   setRaces(data.MRData.RaceTable.Races)
-      //   setLoaded(true);
-      // })
-      // .catch(err => console.log(err))
-
-      // fetch("http://ergast.com/api/f1/current/driverStandings.json")
-      // .then(res => res.json())
-      // .then(data => {
-      //   setDrivers(data.MRData.StandingsTable.StandingsLists[0].DriverStandings)
-      //   setLoaded(true);
-      // })
-      // .catch(err => console.log(err))
-
-      // fetch("http://ergast.com/api/f1/current/constructorStandings.json")
-      // .then(res => res.json())
-      // .then(data => {
-      //   setConstructors(data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
-      //   setLoaded(true);
-      // })
-      // .catch(err => console.log(err))
-
   },[])
 
   return (
