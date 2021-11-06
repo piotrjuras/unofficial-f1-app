@@ -28,9 +28,20 @@ html{
 .App{
     opacity: 0px;
     width: 100vw;
+    animation: fade-in .5s forwards;
+
 }
 #root{
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+@keyframes fade-in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

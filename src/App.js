@@ -6,17 +6,21 @@ import Standings from './Standings';
 import DriverDetails from './DriverDetails';
 import ConstructorDetails from './ConstructorDetails';
 import Loader from './Loader'
+import RaceCalendar from './RaceCalendar';
+import FastestLap from './FastestLap';
 
 const App = () => {
 
   const [races, setRaces] = useState([]);
   const [drivers, setDrivers] = useState([]);
   const [constructors, setConstructors] = useState([]);
+  const [fastestLaps, setFastestLaps] = useState([]); //eslint-disable-line
+
 
 
   const [loaded, setLoaded] = useState(false);
 
-  const urls = ["http://ergast.com/api/f1/current.json", "http://ergast.com/api/f1/current/driverStandings.json", "http://ergast.com/api/f1/current/constructorStandings.json"]
+  const urls = ["http://ergast.com/api/f1/current.json", "http://ergast.com/api/f1/current/driverStandings.json", "http://ergast.com/api/f1/current/constructorStandings.json", "http://ergast.com/api/f1/current/fastest/1/results.json"]
 
 
   useEffect(() => {
@@ -31,6 +35,8 @@ const App = () => {
           setRaces(data[0].MRData.RaceTable.Races)
           setDrivers(data[1].MRData.StandingsTable.StandingsLists[0].DriverStandings)
           setConstructors(data[2].MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
+          setFastestLaps(data[3].MRData.RaceTable.Races)
+
           setLoaded(true);
           
         }
@@ -43,16 +49,18 @@ const App = () => {
     )
 
 
-  },[])
+  },[]) // eslint-disable-line
 
   return (
 
     loaded ? (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename = "/f1">
           <Route exact path = "/">
             <Hero races = {races} />
             <Standings drivers = {drivers} constructors = {constructors} />
+            <RaceCalendar races = {races} />
+            <FastestLap fastestLaps = {fastestLaps} />
           </Route>
           <Route path = "/driver:params">
             <DriverDetails drivers = {drivers} />
