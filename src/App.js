@@ -59,8 +59,12 @@ const App = () => {
           <Route exact path = "/">
             <Hero races = {races} />
             <Standings drivers = {drivers} constructors = {constructors} />
-            <RaceCalendar races = {races} />
-            <FastestLap fastestLaps = {fastestLaps} />
+
+            <section className = "standings">
+              <RaceCalendar races = {races} />
+              <FastestLap fastestLaps = {fastestLaps} />
+            </section>
+
           </Route>
           <Route path = "/driver:params">
             <DriverDetails drivers = {drivers} />
