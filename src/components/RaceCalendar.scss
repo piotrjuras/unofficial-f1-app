@@ -1,0 +1,93 @@
+.race_calendar{
+    width: 100%;
+    @media (max-width: 600px){
+        margin-top: 50px;
+    }
+    h1{
+        font-family: "formula1-display-wide";
+        padding: 0px 20px;
+        @media (max-width: 600px){
+            font-size: 20px;
+        }
+        @media (min-width: 600px){
+            padding-left: 60px;
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 20px;
+        max-width: 600px;
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+
+        @media (min-width: 600px){
+            margin: 0px auto;
+        }
+
+
+        li{
+            width: 90%;
+            padding: 10px;
+            margin: 15px auto;
+            border-bottom: 1px red solid;
+            border-right: 1px red solid;
+            border-radius: 0px 0px 10px 0px;
+            font-size: 15px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-family: "formula1-display-wide";
+
+
+            b{
+                margin-right: 30px;
+
+                font-family: "formula1-display-regular";
+
+            }
+
+            &::after{
+                position: absolute;
+                content: "";
+
+            }
+            span{
+                width: 15px;
+                height: 1px;
+                background-color: red;
+                position: absolute;
+                right: 10px;
+                top: 15px;
+                &::before{
+                    content: " ";
+                    position: absolute;
+                    right: -1px;
+                    top: 4px;
+                    width: 10px;
+                    height: 1px;
+                    background-color: red;
+                    transform: rotate(-45deg);
+                }
+                &::after{
+                    content: " ";
+                    position: absolute;
+                    right: -1px;
+                    bottom: 4px;
+                    width: 10px;
+                    height: 1px;
+                    background-color: red;
+                    transform: rotate(45deg);
+                }
+
+            }
+        }
+        
+    }
+
+
+}
