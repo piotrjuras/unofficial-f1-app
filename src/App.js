@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import Hero from './Hero';
-import Standings from './Standings';
-import DriverDetails from './DriverDetails';
-import ConstructorDetails from './ConstructorDetails';
+import Hero from './components/Hero';
+import Standings from './components/Standings';
+import DriverDetails from './components/DriverDetails';
+import ConstructorDetails from './components/ConstructorDetails';
 import Loader from './Loader'
-import RaceCalendar from './RaceCalendar';
-import FastestLap from './FastestLap';
+import RaceCalendar from './components/RaceCalendar';
+import FastestLap from './components/FastestLap';
 
 const App = () => {
 
