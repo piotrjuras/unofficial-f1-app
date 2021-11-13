@@ -1,0 +1,55 @@
+.toggle_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    padding: 0px 30px;
+    max-width: 400px;
+    margin: auto;
+
+}
+
+.toggle_switch{
+    position: relative;
+    color: var(--text-color);
+
+
+}
+.toggle_switch .outer{
+    width: 65px;
+    height: 40px;
+    border: 1px solid var(--text-color);
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+/* .toggle_switch .outer::before{
+    content: "on";
+    position: absolute;
+    font-size: var(--paragraph-font-size);
+    top: 5px;
+    right: 10px;
+}
+.toggle_switch .outer:after{
+    content: "off";
+    position: absolute;
+    font-size: var(--paragraph-font-size);
+    top: 5px;
+    left: 10px;
+    
+} */
+.toggle_switch .outer .inner{
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    background-color: var(--text-color);
+    top: 2px;
+    left: 2px;
+    transform: translateX(0px);
+    transition: transform .2s;
+    border-radius: 20px;
+
+}
+
+.toggle_switch .outer .inner.light{
+    transform: translateX(25px);
+}

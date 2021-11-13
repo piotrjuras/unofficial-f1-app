@@ -8,6 +8,7 @@ import ConstructorDetails from './components/ConstructorDetails';
 import Loader from './Loader'
 import RaceCalendar from './components/RaceCalendar';
 import FastestLap from './components/FastestLap';
+import { Toggler } from './components/atoms/Toggler'
 
 const App = () => {
 
@@ -32,13 +33,12 @@ const App = () => {
     .then(
         (data) => {
 
-          setRaces(data[0].MRData.RaceTable.Races)
-          setDrivers(data[1].MRData.StandingsTable.StandingsLists[0].DriverStandings)
-          setConstructors(data[2].MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
-          setFastestLaps(data[3].MRData.RaceTable.Races)
-
+          setRaces(data[0].MRData.RaceTable.Races);
+          setDrivers(data[1].MRData.StandingsTable.StandingsLists[0].DriverStandings);
+          setConstructors(data[2].MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
+          setFastestLaps(data[3].MRData.RaceTable.Races);
           setLoaded(true);
-          
+
         }
 
     )
@@ -58,6 +58,7 @@ const App = () => {
         <BrowserRouter basename = "/f1">
           <Route exact path = "/">
             <Hero races = {races} />
+            <Toggler />
             <Standings drivers = {drivers} constructors = {constructors} />
 
             <section className = "standings">

@@ -19,6 +19,18 @@
     url("./fonts/f1-font-bold.ttf") format("truetype");
 }
 
+.light{
+    --background-color: white;
+    --text-color: black;
+
+}
+
+.dark{
+    --background-color: black;
+    --text-color: white;
+
+
+}
 
 html{
     margin: 0px;
@@ -29,13 +41,20 @@ html{
     opacity: 0px;
     width: 100vw;
     animation: fade-in .5s forwards;
+    background-color: var(--background-color);
+    color: var(--text-color);
 
 }
 #root{
     position: absolute;
     top: 0px;
     left: 0px;
+
 }
+
+
+
+
 
 @keyframes fade-in {
     from{

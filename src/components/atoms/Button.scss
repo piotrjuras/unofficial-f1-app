@@ -8,8 +8,8 @@
     border-radius: 10px 0px 10px 0px;
     display: flex;
     margin: auto;
-    background: white;
-
+    background: var(--background-color);
+    color: var(--text-color);
 
     &:hover{
         border-bottom: none;
