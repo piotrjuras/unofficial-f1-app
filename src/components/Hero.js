@@ -14,7 +14,7 @@ const Hero = ({ races }) => {
     useEffect(() => {
 
         races.every(race => {
-            if(race.date > today){
+            if(race.date >= today){
                 setNextRace(race);
                 return false;
             }
