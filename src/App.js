@@ -31,6 +31,7 @@ const App = () => {
         (responses) => Promise.all(responses.map(response => response.json()))
     )
     .then(
+      
         (data) => {
 
           setRaces(data[0].MRData.RaceTable.Races);
