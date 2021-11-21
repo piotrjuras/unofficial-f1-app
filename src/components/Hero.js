@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import today from './TodaysDate';
 import './Hero.scss';
-
 import Button from './atoms/Button';
-
 import Countdown from './Countdown';
+
 
 const Hero = ({ races }) => {
 
