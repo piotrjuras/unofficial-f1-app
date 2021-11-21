@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import Standings from './components/Standings';
 import DriverDetails from './components/DriverDetails';
 import ConstructorDetails from './components/ConstructorDetails';
-import Loader from './Loader'
+import Loader from './Loader';
 import RaceCalendar from './components/RaceCalendar';
 import FastestLap from './components/FastestLap';
 import { Toggler } from './components/atoms/Toggler';
@@ -31,7 +31,6 @@ const App = () => {
         (responses) => Promise.all(responses.map(response => response.json()))
     )
     .then(
-
         (data) => {
 
           setRaces(data[0].MRData.RaceTable.Races);
@@ -41,7 +40,6 @@ const App = () => {
           setLoaded(true);
 
         }
-
     )
     .catch(
         (error) => {
