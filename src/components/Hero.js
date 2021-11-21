@@ -14,7 +14,7 @@ const Hero = ({ races }) => {
 
         races.every(race => {
             if(race.date >= today){
-
+                console.log(race, today)
                 setNextRace(race);
                 return false;
             }
